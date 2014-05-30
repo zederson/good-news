@@ -1,0 +1,22 @@
+<div class="container">
+  <h1># HashTags</h1>
+  <span class="label label-info">#VaiCorinthians</span>
+
+  <hr />
+
+  <div class="jumbotron">
+    <div class="well well-large">
+      <div id="content-messages" data-uri="<%= request.host %>:<%= request.port %>/websocket">
+        <div class="text-animate">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for :javascript do %>
+  $(document).ready(good_news.init);
+<% end %>
+
+

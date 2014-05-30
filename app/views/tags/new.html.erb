@@ -1,0 +1,33 @@
+
+
+<div class="container">
+  <h1># HashTags</h1>
+  <hr />
+
+  <div class="jumbotron">
+      <div class="container">
+
+        <div class="container" id="list_tags_name">
+          <ul class="nav nav-pills" id="list">
+          </ul>
+        </div>
+
+        <br />
+
+        <%= form_tag({controller: "tags", action: "create"}, method: "post", class: "form-search") do %>
+          <div class="input-prepend input-append">
+            <span class="add-on">#</span>
+            <input class="input-xlarge" id="hash_tags" type="text" autofocus="true"  placeholder="Digite a HashTag" data-toggle="tooltip" title="Digite a Hash Tag que deseja monitorar" data-placement="bottom" >
+            <button type="button" class="btn" id="search">Adicionar</button>
+          </div>
+        <% end%>
+      </div>
+  </div>
+</div>
+
+<% content_for :javascript do %>
+  $(document).ready(tags.init);
+  $('form').submit(false);
+  tags.setup("#hash_tags", "#list_tags_name #list", "#search");
+  $('#hash_tags').tooltip('toggle').tooltip('hide')
+<% end %>

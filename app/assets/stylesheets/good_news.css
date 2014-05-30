@@ -1,0 +1,17 @@
+#content-messages {
+  height: 100%;
+  width: 100%;
+}
+
+#content-messages .text-animate #content {
+  display:none;
+  height: auto;
+}
+
+#content-messages .text-animate #content p {
+  max-width: 100%;
+}
+
+#list_tags_name #list .active a:focus{
+  background-color: #E40D74;
+}

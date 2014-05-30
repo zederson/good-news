@@ -33,7 +33,7 @@ var tags = {
     index++;
 
     t += '<li class="active dropdown" id="tag_item_' + index + '">';
-    t += '  <a class="dropdown-toggle" id="tag_' + index + '" role="button" data-toggle="dropdown" href="#">#' + text + ' <b class="caret"></b></a>';
+    t += '  <a class="dropdown-toggle" id="tag_' + index + '" role="button" data-toggle="dropdown" href="#"><i class="icon-tags"></i> #' + text + ' <i class="icon-remove"></i></a>';
     t += '  <ul id="menu_' + index + '" class="dropdown-menu" role="menu" aria-labelledby="tag_' + index + '">';
     t += '    <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:;" onclick="tags.remove('+ index + ')">Excluir</a></li>';
     t += '  </ul>';

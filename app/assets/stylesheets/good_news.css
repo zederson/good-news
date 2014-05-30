@@ -12,6 +12,9 @@
   max-width: 100%;
 }
 
+#list_tags_name #list .active a{
+  color: #000000;
+}
 #list_tags_name #list .active a:focus{
   background-color: #E40D74;
 }

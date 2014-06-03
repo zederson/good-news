@@ -21,10 +21,18 @@ var tags = {
     if (!_val)
       return;
 
+    tags.createHidden(_val);
     $(tags.target).append(tags.template(_val));
     $('.dropdown-toggle').dropdown();
     $(tags.input).val('');
     $(tags.input).focus();
+  },
+
+  createHidden: function(text) {
+    var index   = $(tags.target).find('.dropdown').size();
+    index++;
+    var element = '<input type="hidden" name="tag_name[]" value="' + text + '" id="tag_hidden_'+ index + '" /> ';
+    $('form').append(element);
   },
 
   template: function(text) {
@@ -45,6 +53,7 @@ var tags = {
   remove: function(index) {
     var obj = $(tags.target + ' #tag_item_' + index);
     obj.hide('slow', function(){ obj.remove(); });
+    $('#tag_hidden_' + index).remove();
   }
 
 }

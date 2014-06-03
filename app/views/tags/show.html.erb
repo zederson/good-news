@@ -1,6 +1,8 @@
 <div class="container">
   <h1># HashTags</h1>
-  <span class="label label-info">#VaiCorinthians</span>
+  <% @tags.each do |tag| %>
+    <span class="badge badge-inverse"><%= tag%></span>
+  <% end %>
 
   <hr />
 
@@ -8,7 +10,6 @@
     <div class="well well-large">
       <div id="content-messages" data-uri="<%= request.host %>:<%= request.port %>/websocket">
         <div class="text-animate">
-
         </div>
       </div>
     </div>

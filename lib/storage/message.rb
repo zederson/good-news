@@ -1,6 +1,5 @@
 module Storage
   class Message
-    include Singleton
 
     attr_accessor :stop, :pause
 

@@ -12,7 +12,7 @@ class MessagesController < WebsocketRails::BaseController
       }
 
 
-    # messages = Storage::Message.instance
+    # messages = Storage::Message.new
     # messages.on_message do | message |
     #   puts message.inspect
     #   send_message :message_success, build_message(message), :namespace => :good_news if message

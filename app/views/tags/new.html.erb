@@ -1,5 +1,3 @@
-
-
 <div class="container">
   <h1># HashTags</h1>
   <hr />
@@ -9,17 +7,20 @@
 
         <div class="container" id="list_tags_name">
           <ul class="nav nav-pills" id="list">
+            <%= render partial: 'tag', collection: @tags %>
           </ul>
         </div>
 
         <br />
 
-        <%= form_tag({controller: "tags", action: "create"}, method: "post", class: "form-search") do %>
           <div class="input-prepend input-append">
             <span class="add-on"><i class="icon-fire"></i>#</span>
             <input class="input-xlarge" id="hash_tags" type="text" autofocus="true"  placeholder="Digite a HashTag" data-toggle="tooltip" title="Digite a Hash Tag que deseja monitorar" data-placement="bottom" >
             <button type="button" class="btn" id="search">Adicionar</button>
           </div>
+        <%= form_tag({controller: "tags", action: "create"}, method: "post", class: "form-search") do %>
+          <%= submit_tag "Ok", class: 'btn btn-inverse', id: 'btn_submit' %>
+          <%= render partial: 'hidden', collection: @tags, as: :tag %>
         <% end%>
       </div>
   </div>
@@ -27,7 +28,7 @@
 
 <% content_for :javascript do %>
   $(document).ready(tags.init);
-  $('form').submit(false);
   tags.setup("#hash_tags", "#list_tags_name #list", "#search");
-  $('#hash_tags').tooltip('toggle').tooltip('hide')
+  $('#hash_tags').tooltip('toggle').tooltip('hide');
+  $('.dropdown-toggle').dropdown();
 <% end %>

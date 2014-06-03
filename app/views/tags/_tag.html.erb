@@ -1,0 +1,6 @@
+<li class="active dropdown" id="tag_item_<%= tag_counter + 1%>">
+  <a class="dropdown-toggle" id="tag_<%= tag_counter + 1 %>" role="button" data-toggle="dropdown" href="#"><i class="icon-tags"></i> #<%=tag%> <i class="icon-remove"></i></a>
+  <ul id="menu_<%=tag_counter + 1%>" class="dropdown-menu" role="menu" aria-labelledby="tag_<%=tag_counter + 1%>">
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:;" onclick="tags.remove(<%=tag_counter + 1%>)">Excluir</a></li>
+  </ul>
+</li>

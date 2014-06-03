@@ -6,6 +6,6 @@ Rails.application.routes.draw do
 
   get  'tags/new',      to: 'tags#new'
   post 'tags/create',   to: 'tags#create'
-  get  'tags/*tags',    to: 'tags#listener'
+  get  'tags/show',     to: 'tags#show'
 
 end

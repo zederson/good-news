@@ -17,5 +17,6 @@ gem 'eventmachine'
 gem 'tweetstream', '~> 2.6.0'
 
 gem 'rack'
+gem 'resque'
 
 gem 'spring',        group: :development

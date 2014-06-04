@@ -13,6 +13,8 @@ class TagsController < ApplicationController
       flash[:error] = t("tags.errors.tag_blank") if @tags.blank?
       render 'new'
     else
+
+      Resque.enqueue(Words, @tags)
       render 'show'
     end
   end

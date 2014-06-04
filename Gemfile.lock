@@ -186,6 +186,7 @@ DEPENDENCIES
   eventmachine
   jbuilder (~> 2.0)
   jquery-rails
+  rack
   rails (= 4.1.0)
   redis (~> 3.0.1)
   sass-rails (~> 4.0.3)

@@ -35,5 +35,8 @@ module GoodNews
     config.encoding = "utf-8"
     config.i18n.default_locale = :pt
     config.time_zone = 'Brasilia'
+
+    config.cache_classes = true
+    config.middleware.delete Rack::Lock
   end
 end

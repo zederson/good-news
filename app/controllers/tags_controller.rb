@@ -13,7 +13,7 @@ class TagsController < ApplicationController
       flash[:error] = t("tags.errors.tag_blank") if @tags.blank?
       render 'new'
     else
-      redirect_to action: 'show', tags: @tags
+      render 'show'
     end
   end
 
@@ -24,7 +24,5 @@ class TagsController < ApplicationController
       flash[:error] = t("tags.errors.tag_blank") if @tags.blank?
       redirect_to action: :new
     end
-
   end
-
 end

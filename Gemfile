@@ -16,4 +16,6 @@ gem 'redis', '~> 3.0.1'
 gem 'eventmachine'
 gem 'tweetstream', '~> 2.6.0'
 
+gem 'rack'
+
 gem 'spring',        group: :development

@@ -54,6 +54,16 @@ var tags = {
     var obj = $(tags.target + ' #tag_item_' + index);
     obj.hide('slow', function(){ obj.remove(); });
     $('#tag_hidden_' + index).remove();
-  }
+  },
 
+  start_listener: function(){
+    var tags = [];
+    $('.tags').each(function( index ) { tags.push($( this ).text()) });
+
+    $.ajax({
+           type:'GET',
+           url: '/tags/listener',
+           data: $.param({ tag_name: tags})
+    });
+  }
 }

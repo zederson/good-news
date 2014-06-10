@@ -6,6 +6,13 @@ class TagsController < ApplicationController
   def new
   end
 
+  def start_media_social
+    words = params[:tag_name]
+    ListenerMediaSocial.new.start(words)
+
+    render :nothing => true
+  end
+
   def create
     @tags = params[:tag_name]
 
@@ -14,7 +21,6 @@ class TagsController < ApplicationController
       render 'new'
     else
 
-      Resque.enqueue(Words, @tags)
       render 'show'
     end
   end

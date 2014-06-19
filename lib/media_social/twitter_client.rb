@@ -42,7 +42,7 @@ module MediaSocial
 
     def build_user(tweet)
       opts = {login: tweet.user.screen_name, name: tweet.user.name}
-      opts[:profile_image_url] = tweet.user.profile_image_url.to_s if tweet.user.profile_use_background_image?
+      opts[:uri] = tweet.user.profile_image_url.to_s if tweet.user.profile_use_background_image?
 
       log_info "build user: #{opts}"
       MediaSocial::User.new(opts)

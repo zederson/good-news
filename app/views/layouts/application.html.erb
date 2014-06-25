@@ -1,43 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html class="color-blue with-lwbar-both media-desk-lg">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
     <title>GoodNews</title>
     <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
   <body>
-
-    <div class="navbar navbar-inverse navbar-fixed-top">
-       <div class="navbar-inner">
-          <div class="container">
-             <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-               <span class="icon-bar"></span>
-               <span class="icon-bar"></span>
-               <span class="icon-bar"></span>
-             </button>
-             <a class="brand" href="#">Good News</a>
-             <div class="nav-collapse collapse">
-               <ul class="nav">
-                 <li class="active"><%= link_to "Tags", tags_new_path %></li>
-                 <li><a href="#about">About</a></li>
-                 <li><a href="#contact">Contact</a></li>
-               </ul>
-             </div>
-          </div>
-       </div>
-    </div>
-    <hr />
-
-    <% flash.each do |key, value| %>
-      <div class="<%= flash_class(key) %> fade in">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        <%= value %>
+    <header class="header" role="banner">
+      <nav class="menu-access"></nav>
+      <div class="container">
+        <span class="control-menu visible-xs ico-menu-2"></span>
+        <span class="control-sidebar visible-xs ico-list"></span>
+        <h1 class="project-name"><a href="#">#Hash Tags</a></h1>
       </div>
-    <% end %>
+    </header>
 
-    <%= yield %>
+    <div class="nav-content"><div class="lwbar-id ico-user"><span class="lwbar-login-name"></span><span class="lwbar-plan"></span></div>
+      <menu class="menu">
+        <ul class="container">
+          <li>
+            <%= link_to "home", root_path, class:"active ico-home", role:"menuitem"%>
+          </li>
+        </ul>
+      </menu>
+      <h2 class="title-sep visible-xs">Mais</h2>
+      <ul class="nav-mob-list visible-xs">
+        <li><a href="#" class="ico-help-circle">Ajuda e sugestões</a></li>
+      </ul>
+    </div>
+
+    <main class="main"><span class="bg-shortcut-workaround" style="height: 367px;"></span>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 content" role="main">
+            <% flash.each do |key, value| %>
+              <div class="<%= flash_class(key) %> fade in">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <%= value %>
+              </div>
+            <% end %>
+
+            <%= yield %>
+
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <%= javascript_include_tag 'application' %>
 
     <script type='text/javascript'>
       <%= yield :javascript %>

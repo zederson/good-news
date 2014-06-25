@@ -38,5 +38,10 @@ module GoodNews
 
     config.cache_classes = true
     config.middleware.delete Rack::Lock
+
+    config.assets.enabled = true
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
+
+    config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
   end
 end

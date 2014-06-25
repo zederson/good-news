@@ -4,6 +4,7 @@ class TagsController < ApplicationController
   end
 
   def new
+    flash.clear
   end
 
   def start_media_social
@@ -14,6 +15,7 @@ class TagsController < ApplicationController
   end
 
   def create
+    flash.clear
     @tags = params[:tag_name]
 
     if @tags.blank?

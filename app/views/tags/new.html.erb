@@ -6,8 +6,7 @@
 </div>
 
 <div class="container">
-  <div class="jumbotron">
-      <div class="container">
+  <div class="well">
 
         <div class="container" id="list_tags_name">
           <ul class="nav nav-pills" id="list">
@@ -15,24 +14,29 @@
           </ul>
         </div>
 
-        <br />
+        <hr class="separator" />
 
-          <div class="input-prepend input-append">
-            <span class="add-on"><i class="icon-fire"></i>#</span>
-            <input class="input-xlarge" id="hash_tags" type="text" autofocus="true"  placeholder="Digite a HashTag" data-toggle="tooltip" title="Digite a Hash Tag que deseja monitorar" data-placement="bottom" >
-            <button type="button" class="btn" id="search">Adicionar</button>
-          </div>
+        <div class="input-group" >
+          <span class="input-group-addon">
+            <span class="ico-twitter-3"></span>
+            <span class="ico-instagram"></span>
+          </span>
+          <input class="form-control" id="hash_tags" type="text" autofocus="true"  placeholder="Digite a HashTag" data-toggle="tooltip" title="Digite a Hash Tag que deseja monitorar" data-placement="bottom" >
+          <span class="input-group-btn">
+            <button class="btn btn-success ico-earth" id="search">Adicionar</button>
+          </span>
+        </div>
+
+        <br/>
+
         <%= form_tag({controller: "tags", action: "create"}, method: "post", class: "form-search") do %>
-          <%= submit_tag "Ok", class: 'btn btn-inverse', id: 'btn_submit' %>
+          <%= submit_tag "Começar", class: 'btn btn-info', id: 'btn_submit' %>
           <%= render partial: 'hidden', collection: @tags, as: :tag %>
         <% end%>
-      </div>
   </div>
 </div>
 
 <% content_for :javascript do %>
   $(document).ready(tags.init);
   tags.setup("#hash_tags", "#list_tags_name #list", "#search");
-  $('#hash_tags').tooltip('toggle').tooltip('hide');
-  $('.dropdown-toggle').dropdown();
 <% end %>

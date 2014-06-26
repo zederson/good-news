@@ -37,14 +37,17 @@ var tags = {
 
   template: function(text) {
     var t     = "";
-    var index = $(tags.target).find('.dropdown').size();
+    var index = $(tags.target).find('.btn-group').size();
     index++;
 
-    t += '<li class="active dropdown" id="tag_item_' + index + '">';
-    t += '  <a class="dropdown-toggle" id="tag_' + index + '" role="button" data-toggle="dropdown" href="#"><i class="icon-tags"></i> #' + text + ' <i class="icon-remove"></i></a>';
-    t += '  <ul id="menu_' + index + '" class="dropdown-menu" role="menu" aria-labelledby="tag_' + index + '">';
-    t += '    <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:;" onclick="tags.remove('+ index + ')">Excluir</a></li>';
-    t += '  </ul>';
+    t += '<li id="tag_item_' + index + '" >';
+    t += '  <div class="btn-group" >';
+    t += '    <a class="btn btn-danger ico-tag" href="javascript:;">' + text + '</a>';
+    t += '    <a class="btn btn-danger dropdown-toggle" data-toggle="dropdown" href="#"></a>';
+    t += '    <ul class="dropdown-menu">';
+    t += '      <li><a href="javascript:;" onclick="tags.remove('+ index + ')" ><i class="icon-pencil"></i>Excluir</a></li>';
+    t += '    </ul>';
+    t += '  </div>';
     t += '</li>';
 
     return $(t);
@@ -53,7 +56,6 @@ var tags = {
   remove: function(index) {
     var obj = $(tags.target + ' #tag_item_' + index);
     obj.hide('slow', function(){ obj.remove(); });
-    $('#tag_hidden_' + index).remove();
   },
 
   start_listener: function(){

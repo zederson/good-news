@@ -21,32 +21,34 @@ var good_news = {
     return $("#content-messages");
   },
 
-  getTemplate: function(text, name, login, uri) {
+  getTemplate: function(text, name, login, uri, message) {
     var content = '';
-        content += '<div id="content">  <div class="row">';
-        content += '    <div class="container-fluid">';
-        content += '      <div class="row-fluid">';
-        content += '        <div class="span1">';
+
+        content += ' <div class="ls-list">';
+        content += '   <header class="ls-list-header">';
+        content += '     <div class="ls-list-image">';
 
         if (uri != null)
           content += '          <img class="img-circle" src="' + uri + '">';
 
-        content += '        </div>';
-        content += '        <div class="span11">';
-        content += '            <div class="span11">';
-        content += '              <h5>' + name + ' (' + login + ')</h5>';
-        content += '              <blockquote><p class="text-success">' + text + '<p></blockquote>';
-        content += '            </div>';
-        content += '        </div>';
-        content += '      </div>';
-        content += '    </div>';
-        content += '  </div>';
-        content += '  <hr /> </div>';
+        content += '     </div>';
+        content += '     <div class="ls-list-title">';
+        content += '       <h3>' + name + ' <a href="https://twitter.com/' + login + '" target="_blank">(' + login + ')</a> </h3>';
+        content += '       <span aria-hidden="true" class="ico-' + message.type + '"></span>';
+        content += '     </div>';
+        content += '   </header>';
+        content += '   <div class="ls-list-title">';
+        content += '     <blockquote>';
+        content += '       <p class="text-success">' + text + '</p>';
+        content += '     </blockquote>';
+        content += '   </div>';
+        content += ' </div>';
+
     return content;
   },
 
   append: function(message) {
-    var tag = good_news.getTemplate(message.text, message.user.name, message.user.login, message.user.uri);
+    var tag = good_news.getTemplate(message.text, message.user.name, message.user.login, message.user.uri, message);
     //this.getObj().find('.text-animate').prepend(tag);
 
     $(tag).prependTo(this.getObj().find('.text-animate'))

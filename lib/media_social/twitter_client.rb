@@ -37,7 +37,7 @@ module MediaSocial
       log_info "build message"
 
       user    = build_user(tweet)
-      MediaSocial::Message.new(user, tweet.text)
+      MediaSocial::Message.new(user, tweet.text, :twitter, tweet.id)
     end
 
     def build_user(tweet)

@@ -5,16 +5,13 @@
 <hr class="separator">
 
 <div class="well arrow-up no-bg">
-    <div class="well well-large">
-      <div id="content-messages" data-uri="<%= request.host %>:<%= request.port %>/websocket">
-        <div class="text-animate">
-        </div>
-      </div>
+  <div id="content-messages" data-uri="<%= request.host %>:<%= request.port %>/websocket">
+    <div class="text-animate">
     </div>
   </div>
 </div>
 
 <% content_for :javascript do %>
   $(document).ready(good_news.init);
-  //tags.start_listener();
+  tags.start_listener();
 <% end %>
